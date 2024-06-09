@@ -6,8 +6,8 @@ const initOpenAI = (apiKey: string) => {
   });
 };
 
-const generateResponse = async (prompt: string) => {
-  const openai = initOpenAI("");
+export const generateResponse = async (apiKey: string, prompt: string) => {
+  const openai = initOpenAI(apiKey);
   const chatCompletion = await openai.chat.completions.create({
     messages: [{ role: "user", content: prompt }],
     model: "gpt-3.5-turbo",
