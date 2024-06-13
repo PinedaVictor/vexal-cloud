@@ -9,10 +9,12 @@ const projectId = process.env.FB_ADMIN_PROJECT_ID;
 const privateKey = process.env.FB_ADMIN_PRIVATE_KEY ?? placeholderRandomKey;
 const clientEmail = process.env.FB_ADMIN_CLIENT_EMAIL;
 
+// TODO: Verify and test
 // Initialize Firebase
 export const getFirebaseAdmin = () => {
   const app = getApp();
   if (!app) {
+    console.log("!app ran");
     return initializeApp({
       credential: cert({
         privateKey: privateKey.replace(/\\n/g, "\n"),
@@ -25,14 +27,15 @@ export const getFirebaseAdmin = () => {
 };
 
 export const validateToken = async (token: string | null) => {
+  const app = await getFirebaseAdmin();
   if (!token) {
     return false;
   }
   try {
-    const tokenValid = await getAuth().verifyIdToken(token);
+    const tokenValid = await getAuth(app).verifyIdToken(token);
     return tokenValid;
   } catch (error) {
-    console.error(error);
+    console.log("Error validating token");
     return false;
   }
 };

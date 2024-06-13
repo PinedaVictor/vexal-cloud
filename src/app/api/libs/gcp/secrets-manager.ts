@@ -1,11 +1,6 @@
 "use server";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-// import { getAuth, type DecodedIdToken } from "firebase-admin/auth";
-import { NextRequest } from "next/server";
 import { API_ENV } from "../../env";
-// import { getFirebaseAdmin, validateToken } from "../firebase-admin/config";
-// import { validateToken } from "./firebase-admin";
-// import { headers } from "next/headers";
 
 let client: SecretManagerServiceClient;
 const initSecretManager = () => {
@@ -25,10 +20,6 @@ const initSecretManager = () => {
   return client;
 };
 
-// export interface VxReq extends NextRequest {
-//   user?: DecodedIdToken;
-// }
-
 export const getSecret = async (uid: string, sdk: string) => {
   const client = initSecretManager();
   try {
@@ -38,6 +29,6 @@ export const getSecret = async (uid: string, sdk: string) => {
     return secretVersion[0].payload?.data?.toString();
   } catch (error) {
     console.error(error);
-    // return 'secret not found';
+    return "secret not found";
   }
 };
