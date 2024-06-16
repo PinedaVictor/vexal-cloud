@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AuthorizedUI } from "@/components/atomic/templates/AuthorizedUI";
@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AuthorizedUI>{children}</AuthorizedUI>
+      </body>
     </html>
   );
 }

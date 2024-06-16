@@ -78,6 +78,7 @@ export const Navigation: React.FC<props> = (props) => {
                     {/* Clerk Auth */}
                     {/* <UserButton afterSignOutUrl="/sign-in" /> */}
                   </span>
+                  <button>Sign Out</button>
                 </Menu.Button>
               </Menu>
             </div>
