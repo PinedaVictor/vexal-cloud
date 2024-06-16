@@ -9,7 +9,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const DocsUI: React.FC<Props> = (props) => {
+export const AuthorizedUI: React.FC<Props> = (props) => {
   return (
     <NavContextProvider navigation={{ menu: navigationMenu }}>
       <Navigation>{props.children}</Navigation>
