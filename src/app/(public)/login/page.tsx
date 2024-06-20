@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { vexalFirebaseApp } from "@/app/firebase";
 import { useEffect } from "react";
-import { redirectUser } from "@/app/api/redirects/route";
+import { redirectUser } from "@/app/api/actions/redirect";
 
 export default function SignInCLI() {
   const [loading, setLoading] = useState(true);
