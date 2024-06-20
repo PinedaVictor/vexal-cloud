@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({ sup: true });
 }
 
-export const redirectUser = (token: string, userId: string) => {
+export const redirectUser = async (token: string, userId: string) => {
   const callbackUrl = process.env.CALLBACK_URL;
 
   if (!callbackUrl || !token || !userId) {
