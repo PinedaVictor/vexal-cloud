@@ -1,13 +1,12 @@
 "use client";
 import "firebaseui/dist/firebaseui.css";
 import { useEffect } from "react";
-import type { ReactNode } from "react";
 import { vexalFirebaseApp } from "./firebase";
 import { useRouter } from "next/navigation";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import * as firebaseui from "firebaseui";
 
-export default function Home(props: { children: ReactNode }) {
+export default function Home() {
   const router = useRouter();
   const auth = getAuth(vexalFirebaseApp);
 
