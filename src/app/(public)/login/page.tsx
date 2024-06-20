@@ -3,8 +3,8 @@ import { useState } from "react";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
   onAuthStateChanged,
+  signInWithPopup,
 } from "firebase/auth";
 import { vexalFirebaseApp } from "@/app/firebase";
 import { useEffect } from "react";
@@ -18,7 +18,7 @@ export default function SignInCLI() {
     const SignInOAuth2 = async () => {
       const provider = new GoogleAuthProvider();
       try {
-        signInWithRedirect(auth, provider);
+        signInWithPopup(auth, provider);
       } catch (error) {
         console.log("Error redirecting user:", error);
       }

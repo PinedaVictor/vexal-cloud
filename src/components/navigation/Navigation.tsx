@@ -4,6 +4,7 @@ import { Menu } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import { Sidebar } from "./Sidebar";
 import { MobileDrawer } from "./mobile/MobileDrawer";
+import { signOut } from "firebase/auth";
 
 type props = {
   children: React.ReactNode;
