@@ -26,7 +26,7 @@ export const authorize = async (jiraState: string, authCode: string) => {
       }),
     });
     const data = await response.json();
-    return data;
+    return JSON.parse(JSON.stringify(data));
   } catch (error) {
     console.error("Error:", error);
   }
