@@ -9,7 +9,8 @@ import { registerEvent } from "../../registerEvent";
  * Sample route using nextjs
  */
 export async function GET(request: Request) {
-  console.log("Hitting server at /api/analytics/vx/installs");
+  console.log("Hitting server at /api/orbit/vx/installs");
+  //   https://api.vexal.io/api/orbit/vx/installs
   registerEvent("installs");
   return Response.json({ sup: true });
 }

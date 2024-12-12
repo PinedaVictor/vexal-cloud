@@ -9,7 +9,7 @@ import { registerEvent } from "./registerEvent";
  * Sample route using nextjs
  */
 export async function GET(request: Request) {
-  console.log("Hitting server at /api/analytics");
+  console.log("Hitting server at /api/orbit");
   registerEvent("debug");
   return Response.json({ sup: true });
 }
