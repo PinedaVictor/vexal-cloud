@@ -10,6 +10,12 @@ import { registerEvent } from "./registerEvent";
  */
 export async function GET(request: Request) {
   console.log("Hitting server at /api/orbit");
-  registerEvent("debug");
+  try {
+    const data = await registerEvent("debug");
+    console.log("Data:", data);
+    return Response.json({ sup: data?.status });
+  } catch (error) {
+    console.error("error registering event:", error);
+  }
   return Response.json({ sup: true });
 }

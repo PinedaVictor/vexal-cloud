@@ -1,5 +1,4 @@
 export const registerEvent = async (eventName: string, params?: object) => {
-  console.log("Running test install");
   const measurement_id = process.env.GA_MEASUREMENT_ID;
   const api_secret = process.env.GA_API_SECRET;
 
@@ -20,6 +19,7 @@ export const registerEvent = async (eventName: string, params?: object) => {
       }
     );
     console.log(addEvent.status);
+    return addEvent;
   } catch (error) {
     console.error("error logging event:", error);
   }
